@@ -1,8 +1,73 @@
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+
+$gris: rgb(94, 94, 94);
+$blanco: white;
+$negro: black;
+$gris-claro: rgb(221, 221, 221);
+
+@mixin boton-colores{
+    background: $gris-claro;
+    color: $negro;
+}
+
+@mixin borde {
+    border: 1px solid $gris;
+}
+
+.body-container {
+    align-items: center;
+    border: 4px solid $gris;
+    padding: 50px;
+    margin-top: 3%;
+}
+
 #titulo {
     font-family: unset;
     font-size: xx-large;
+    margin-bottom: 30px;
 }
 
-.radio-hombre {
-    margin-right: 60px;
+.boton-custom{
+    @include boton-colores;
+    @include borde;
+}
+
+ul {
+    list-style-type: none;
+    display: inline;
+}
+
+.custom-col {
+    flex-basis: 0;
+    flex-grow: 0;
+    max-width: 100%;
+    margin-left: 6px;
+}
+
+.box {
+    @include borde;
+    margin: 10px;
 }
