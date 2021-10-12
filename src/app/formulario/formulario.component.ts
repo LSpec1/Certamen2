@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validator} from '@angular/forms';
 
-
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -16,8 +15,56 @@ export class FormularioComponent implements OnInit {
 
 }
 
+//Cambiar las comunas del dropdown
+window.onload = function(){
+  let region:any = document.getElementById("region");
+  let comunaId:any = document.querySelector("#comuna");
+  let listaComunasVal:any = ["Valparaiso", "Limache", "Quillota"];
+  let listaComunasRM:any = ["Maipu", "Puente Alto", "San Bernardo"];
+  let fragmento:any = document.createDocumentFragment();
+  let comuna:any = document.getElementById("comuna");
+  let i:any;
 
+  //esta variable se utiliza para no volver a crear la misma lista de elementos
+  let cambio:any = false;
+  let reset:any = false;
 
+  comuna.addEventListener('click', function(){
+    i = 0;
+    //resetear la la caja comuna
+    if (reset == true) {
+      i++;
+      comuna.childNodes.forEach(function(value:any){
+        comuna.removeChild(comuna.childNodes[i]);
+      });
+      comuna.removeChild(comuna.lastChild);
+    }
+
+    if (region.value == "Valparaiso") {
+      listaComunasVal.forEach(function(value:any){
+        const option = document.createElement("option");
+        option.textContent = value;
+        //se añade el codigo al fragmento
+        fragmento.appendChild(option);
+      });
+      //se termina de añadir el fragmento al sitio
+      comunaId.appendChild(fragmento);
+      reset = true;
+    } else if (region.value == "RM"){
+      listaComunasRM.forEach(function(value:any){
+        const option = document.createElement("option");
+        option.textContent = value;
+        //se añade el codigo al fragmento
+        fragmento.appendChild(option);
+      });
+      //se termina de añadir el fragmento al sitio
+      comunaId.appendChild(fragmento);
+      reset = true;
+    }
+  });
+}
+
+//<option value="V">Valparaiso</option>
 
 //imprimir datos personales
 let formulario:any = document.getElementById("formulario");
