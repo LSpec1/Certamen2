@@ -15,11 +15,11 @@
         <div class="form-group row">
             <label class="col-sm-2 mx-2">Género</label>
             <div class="form-check mx-4">
-                <input class="form-check-input" type="radio" name="gridRadios">
+                <input class="form-check-input" type="radio" name="gridRadios" id="genero" value="hombre">
                 <label class="form-check-label" for="hombre">Hombre</label>
             </div>
             <div class="form-check mx-4">
-                <input class="form-check-input" type="radio" name="gridRadios">
+                <input class="form-check-input" type="radio" name="gridRadios" id="genero" value="mujer">
                 <label class="form-check-label" for="mujer">Mujer</label>
             </div>
         </div>
@@ -67,10 +67,8 @@
                 </button>
             </div>
             <div class="container col">
-                <div class="row">
-                    <div class="col-4 box">Electrónica</div>
-                    <div class="col-4 box">Informática</div>
-                    <div class="col-4 box">Mecánica</div>
+                <div class="row" id="etiquetas">
+                    
                 </div>
             </div>
             <div>
@@ -78,7 +76,7 @@
                     <input type="text" name="habilidad" placeholder="habilidad" id="habilidad">
                 </div>
                 <div class="mx-5">
-                    <button type="button">Adicionar</button>
+                    <button type="button" id="adicionar">Adicionar</button>
                 </div>
             </div>
         </div>
