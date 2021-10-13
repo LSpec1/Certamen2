@@ -23,16 +23,22 @@ window.onload = function(){
   });
 
   //adicionar etiquetas
+  let cuadro:any = document.getElementById("cuadroAnadir");
+  cuadro.style.display = "none";
+  let anadirTag:any = document.getElementById("anadirTag");
+  anadirTag.addEventListener('click', function(){
+    mostrarTag();
+  });
+
   let adicionar:any = document.getElementById("adicionar");
   adicionar.addEventListener('click', function(){
     adicionarEtiquetas();
   });
 
   //imprimir datos
-  let submit:any = document.getElementById("submit");
+  let submit:any = document.getElementById("crear");
   submit.addEventListener("click", function() {
     imprimirFormulario();
-    limpiar();
   });
 
   //limpiar todo
@@ -41,6 +47,8 @@ window.onload = function(){
     limpiar();
   });
 }
+
+//Funciones---------------------------------------------------------------------------------------------------------------------------------------
 
 function dropdowns(){
   let region:any = document.getElementById("region");
@@ -88,7 +96,13 @@ function dropdowns(){
   }
 }
 
+function mostrarTag() {
+  let cuadro:any = document.getElementById("cuadroAnadir");
+  cuadro.style.display = "inline";
+}
+
 function adicionarEtiquetas(){
+
   let adicionar:any = document.getElementById("adicionar");
   let habilidad:any = document.getElementById("habilidad");
   let etiquetas:any = document.getElementById("etiquetas");
@@ -108,11 +122,15 @@ function adicionarEtiquetas(){
     div2.appendChild(div3);
     div.appendChild(div2);
     etiquetas.appendChild(div);
+
+    
+    let cuadro:any = document.getElementById("cuadroAnadir");
+    cuadro.style.display = "none";
   }
 }
 
 function imprimirFormulario(){
-  let submit:any = document.getElementById("submit");
+  let submit:any = document.getElementById("crear");
 
   let nombre:any = document.getElementById("nombre");
   let edad:any = document.getElementById("edad");
